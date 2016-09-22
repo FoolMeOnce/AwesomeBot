@@ -8322,9 +8322,9 @@ function saveData(file, callback) {
             object = logs;
             break;
     }
-    writeFileAtomic(file, JSON.stringify(object), {chown:{uid: 100, gid: 50}}, function(error) {
+    writeFileAtomic(file, JSON.stringify(object, undefined, 2), {chown:{uid: 100, gid: 50}}, function(error) {
         if(error) {
-            fs.writeFile(file, JSON.stringify(object), function(err) {
+            fs.writeFile(file, JSON.stringify(object, undefined, 2), function(err) {
                 callback(err);
             });
         } else {
